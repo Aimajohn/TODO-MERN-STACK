@@ -10,12 +10,14 @@ type todo = {
     title: string;
     description: string;
     id: number;
+    emoji: string;
     status: boolean;
     created_at: string;
   };
   type MyFormValues ={
     title: string;
     description: string;
+    emoji: string;
   }
 
 export const UseTodos = () => {
@@ -42,7 +44,6 @@ const TodosContextProvider = ({ children }: Props) => {
         try {
             const result = await getTodosRequest();
             setTodos(result.data)
-            console.log(result.data)
             
         } catch (error) {
             console.log(error);
@@ -96,7 +97,6 @@ const TodosContextProvider = ({ children }: Props) => {
           // const thisTodo = todos.filter(todo => todo.id != id) 
 
           setTodos(thisTodo)
-          console.log(response)
         } catch (error) {
           console.warn(error)
         }

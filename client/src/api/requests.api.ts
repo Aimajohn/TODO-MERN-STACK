@@ -3,9 +3,10 @@ import axios from 'axios'
 interface MyFormValues {
     title: string;
     description: string;
+    emoji: string;
   }
 const local = 'http://localhost:4000'
-const server = 'https://todo-mern-stack-production-9aa8.up.railway.app/'
+const server = 'https://todo-mern-stack-production-9aa8.up.railway.app'
 
 export const createTodoRequest = async(todo:MyFormValues) =>(
     await axios.post(`${server}/todo`, todo)

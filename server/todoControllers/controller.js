@@ -48,12 +48,12 @@ export const deleteTodo = async(req, res) => {
 };
 export const createTodo = async (req, res) => {
     try {
-        const { title, description } = req.body;
+        const { title, description, emoji } = req.body;
         const [result] = await pool.query(
-          "INSERT INTO todo(title, description) VALUES (?, ?)",
-          [title, description]
+          "INSERT INTO todo(title, description, emoji) VALUES (?, ?, ?)",
+          [title, description, emoji]
         );
-        res.json({ title, description, id: result.insertId });
+        res.json({ title, description, emoji, id: result.insertId });
     } catch (error) {
         res.status(500).send("Error 500 de servidor 😝")
     }

@@ -5,12 +5,14 @@ type todo = {
     description: string;
     id: number;
     status: boolean;
+    emoji: string;
     created_at: string;
   };
 
   type MyFormValues ={
     title: string;
     description: string;
+    emoji: string;
   }
 
 interface TodoActionsContext {

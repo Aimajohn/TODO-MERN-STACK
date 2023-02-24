@@ -9,8 +9,9 @@ function App() {
 
   return (
     <TodosContextProvider>
-      <main className='bg-zinc-900 h-screen text-gray-100'>
+      <main className='min-h-screen bg-zinc-900 pb-20 text-gray-100'>
     <Navbar/>
+    
     <Routes>
       <Route path='/' element={<MainTodo/>}/>
       <Route path='/new' element={<TodoForm/>}/>
