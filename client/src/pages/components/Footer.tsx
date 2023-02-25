@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import imagen from "../../../public/icon-just-books.png"
 type Props = {};
 
 function Footer({}: Props) {
@@ -6,7 +7,7 @@ function Footer({}: Props) {
     <div className="flex justify-between items-center px-4 h-40 md:h-20 absolute bottom-0 w-full  bg-purple-800 text-gray-100">
       <div className="flex flex-col md:flex-row items-center gap-4">
         <div className="min-w-fit ">
-          <img className="w-10" src="/icon-just-books.png" alt="" />
+          <img className="w-10" src={imagen} alt="" />
           <span className="text-purple-200  text-xs font-poppins ">
             By John
           </span>

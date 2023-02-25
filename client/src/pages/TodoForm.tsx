@@ -54,9 +54,9 @@ const TodoForm: React.FC<{}> = () => {
   }, []);
 
   return (
-    <div className="w-10/12 mx-auto  lg:p-4 lg:pl-20 pt-10">
+    <div className="mb-40 md:mb-20 w-10/12 mx-auto  lg:p-4 lg:pl-20 pt-10">
       <h1 className="font-poppins font-semibold text-2xl pb-4">
-        {params.id ? "Editar Tarea" : "Crea una nueva tarea"}
+        {params.id ? "Editar Tarea" : "Crea una tarjeta para el muro"}
       </h1>
       <Formik
         initialValues={initialTodo}
