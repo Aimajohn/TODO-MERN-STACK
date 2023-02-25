@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import imagen from "../../../public/icon-just-books.png"
+import imagen from "/icon-just-books.png"
 type Props = {};
 
 function Footer({}: Props) {

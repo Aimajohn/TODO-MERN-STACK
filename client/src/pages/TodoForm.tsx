@@ -14,6 +14,7 @@ interface MyFormValues {
 
 const TodoForm: React.FC<{}> = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const reftitle = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
   const emojisMamalones = [
@@ -64,12 +65,21 @@ const TodoForm: React.FC<{}> = () => {
         onSubmit={async (values) => {
           const matches = values.emoji?.match(regex)
           console.log(matches, values.emoji)
+          if(values?.title?.length < 2){
+            reftitle.current?.lastElementChild?.classList.remove("opacity-0");
+            reftitle.current?.lastElementChild?.classList.add("focus:border-red-500");
+            (reftitle.current?.children[1] as HTMLInputElement).focus()
+          }else{
+            reftitle.current?.lastElementChild?.classList.add("opacity-0");
+          }
           if (matches?.length != 1) {
             ref.current?.lastElementChild?.classList.remove("opacity-0");
             ref.current?.lastElementChild?.classList.add("focus:border-red-500");
             (ref.current?.children[1] as HTMLInputElement).focus()
-            return console.log("Este imbecil intenta pasarse de listo");
+          }else{
+            ref.current?.lastElementChild?.classList.add("opacity-0");
           }
+          if(values?.title?.length < 2 || matches?.length != 1)return console.log("idiota")
           if (!params.id) {
             await createTodo({...values, emoji: matches[0]});
           } else {
@@ -85,6 +95,7 @@ const TodoForm: React.FC<{}> = () => {
             className="font-source flex flex-col w-full lg:w-min "
             onSubmit={handleSubmit}
           >
+            <div ref={reftitle}>
             <label htmlFor="title" className="font-semibold text-xl">
               Titulo
             </label>
@@ -98,6 +109,13 @@ const TodoForm: React.FC<{}> = () => {
               maxLength={200}
               className="focus:outline-none overflow-hidden w-full lg:w-96 placeholder:text-white placeholder:text-opacity-80 rounded-md py-3 px-2 my-3 bg-gray-50 bg-opacity-50 text-white text-lg"
             />
+              <span
+              
+              className="font-poppins  text-red-500 opacity-0"
+            >
+              Pon <b className=" font-bold">un</b> titulo mas largo, estupid@
+            </span>
+            </div>
             <div ref={ref} className="flex flex-col items-left">
               <label htmlFor="emoji" className=" font-semibold text-xl">
                 Emoji
@@ -114,9 +132,9 @@ const TodoForm: React.FC<{}> = () => {
               />
               <span
               
-              className="font-source font-semibold text-red-500 opacity-0"
+              className="font-poppins  text-red-500 opacity-0"
             >
-              Solo un emoji, bastard@
+              Es requerido <b className=" font-bold">solo un</b> emoji, bastard@
             </span>
             </div>
             
