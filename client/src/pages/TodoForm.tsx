@@ -81,6 +81,7 @@ const TodoForm: React.FC<{}> = () => {
       >
         {({ values, isSubmitting, handleSubmit, handleChange }) => (
           <Form
+          autoComplete="off"
             className="font-source flex flex-col w-full lg:w-min "
             onSubmit={handleSubmit}
           >
@@ -88,6 +89,7 @@ const TodoForm: React.FC<{}> = () => {
               Titulo
             </label>
             <input
+            autoComplete="off"
               type="text"
               value={values.title}
               name="title"
@@ -101,6 +103,7 @@ const TodoForm: React.FC<{}> = () => {
                 Emoji
               </label>
               <input
+              autoComplete="off"
                 type="text"
                 value={values.emoji}
                 name="emoji"
@@ -121,6 +124,7 @@ const TodoForm: React.FC<{}> = () => {
               Descripcion
             </label>
             <textarea
+            autoComplete="off"
               maxLength={300}
               className="focus:outline-none overflow-hidden block w-full lg:w-96  placeholder:text-white placeholder:text-opacity-80 rounded-md py-1 px-2 my-3 bg-gray-50 bg-opacity-50 text-white text-opacity-80 text-lg"
               name="description"

@@ -6,7 +6,7 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter basename="/TODO-MERN-STACK">
+    <BrowserRouter basename="/TODO-MERN-STACK/">
       <App />
     </BrowserRouter>
   </React.StrictMode>

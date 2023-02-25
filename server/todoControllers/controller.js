@@ -2,7 +2,7 @@ import { pool } from "../db.js";
 
 export const getTodos = async (req, res) => {
     try {
-        const result = await pool.query("SELECT * FROM todo ORDER BY created_at ASC");
+        const result = await pool.query("SELECT * FROM todo ORDER BY created_at DESC");
         res.json(result[0]);
     } catch (error) {
         res.status(500).json({"message":"Error 500 de servidor 😝"})
