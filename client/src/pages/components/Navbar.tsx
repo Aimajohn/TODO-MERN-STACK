@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
+import logo from '/logoTooWrite.png'
 
 function Navbar() {
   return (
     <nav className="justify-center w-full px-4 py-2 bg-[#2A2B3D] flex flex-row h-20 lg:justify-between items-center ">
       <Link to={"/"}>
         <h1 className="font-poppins font-semibold text-3xl tracking-tight">
-          Muro de Mensajes
-          <b className="text-purple-500 text-4xl">.
-          </b>
+          <img src={logo} alt="Logo TooWrite app"  width={200}/>
         </h1>
       </Link>
 
